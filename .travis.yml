@@ -27,7 +27,7 @@ arch: ppc64le
 
 jobs:
   include:
-  - name: dest-and-lang-default
+  - name: dist-and-lang-default
   - dist: xenial
     name: xenial-lang-default
   - dist: bionic

@@ -1,8 +1,8 @@
 notifications:
   email: false
 
-language: bash
-dist: bionic
+# language: bash
+# dist: bionic
   
 # compiler:
 #   - gcc

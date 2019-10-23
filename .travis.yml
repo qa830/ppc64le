@@ -1,0 +1,99 @@
+notifications:
+  email: false
+
+language: bash
+dist: bionic
+  
+# compiler:
+#   - gcc
+#   - clang
+
+arch: ppc64le
+
+# install:
+#   - pip install --user numpy
+
+# rvm:
+# - 2.6.4
+# - 2.6.3
+# - 2.6.2
+
+# dist: xenial
+# language: bash
+
+# go:
+# - 1.12.x
+# - 1.13.x
+
+jobs:
+  include:
+  - name: dest-and-lang-default
+  - dist: xenial
+    name: xenial-lang-default
+  - dist: bionic
+    name: bionic-lang-default
+  - dist: xenial
+    name: xenial-ruby
+    language: ruby
+  - dist: bionic
+    name: bionic-ruby
+    language: ruby
+  - dist: xenial
+    name: xenial-c
+    language: c
+  - dist: bionic
+    name: bionic-c
+    language: c
+  - dist: xenial
+    name: xenial-minimal
+    language: minimal
+  - dist: bionic
+    name: bionic-minimal
+    language: minimal
+  - dist: xenial
+    name: xenial-slim
+    language: slim
+  - dist: bionic
+    name: bionic-slim
+    language: slim
+
+# cache:
+#   directories:
+#    - /home/travis/.rvm/
+     
+# env:
+# - BUILD=1
+# - BUILD=2
+# - BUILD=3
+
+#install: skip
+
+script:
+# Environment information
+- echo "==> Environment information"
+- uname -a
+- cat /etc/os-release
+- grep ^processor /proc/cpuinfo
+- free -m
+- df -h
+
+# Snaps
+- echo "==> Snaps"
+- sudo snap install core || true
+- sudo snap install core
+- sudo snap install hello-world
+- hello-world
+
+# Sleep
+#- sleep 600
+
+# Docker
+- echo "==> Docker"
+- docker info
+- docker run hello-world
+
+# # # ruby
+- echo "==> Ruby"
+- ruby -v
+#- gem i bundler
+# # #- sleep 120

@@ -49,7 +49,7 @@ jobs:
     language: go
     script: go version
   - dist: bionic
-    name: bionic-c
+    name: bionic-go
     language: go
     script: go version
   - dist: xenial

@@ -122,6 +122,8 @@ jobs:
   - dist: bionic
     name: bionic-slim
     language: slim
+  - os: linux-ppc64le
+    name: linux-ppc64le
 
 # cache:
 #   directories:

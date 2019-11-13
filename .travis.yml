@@ -1,5 +1,10 @@
 language: ruby
 dist: xenial
+
+before_install:
+- sudo apt update -yqq && sudo apt install dnsutils -y
+- nslookup github.com
+- nslookup google.com
 # jobs:
 #   include:
 #     - jdk: openjdk9
@@ -122,9 +127,26 @@ jobs:
   - dist: bionic
     name: bionic-slim
     language: slim
-  - os: linux-ppc64le
-    name: linux-ppc64le
-
+  - dist: xenial
+    name: xenial-php
+    language: php
+    script:
+    - php -v
+  - dist: bionic
+    name: bionic-php
+    language: php
+    script:
+    - php -v
+  - dist: xenial
+    name: xenial-generic
+    language: generic
+    script:
+    - php -v
+  - dist: bionic
+    name: bionic-generic
+    language: generic
+    script:
+    - php -v
 # cache:
 #   directories:
 #    - /home/travis/.rvm/
@@ -134,7 +156,7 @@ jobs:
 # - BUILD=2
 # - BUILD=3
 
-#install: skip
+install: skip
 
 script:
 # Environment information
@@ -144,6 +166,7 @@ script:
 - grep ^processor /proc/cpuinfo
 - free -m
 - df -h
+- cat /etc/resolv.conf
 
 # Snaps
 # - echo "==> Snaps"

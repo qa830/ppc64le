@@ -170,11 +170,11 @@ script:
 - cat /etc/resolv.conf
 
 # Snaps
-# - echo "==> Snaps"
-# - sudo snap install core || true
-# - sudo snap install core
-# - sudo snap install hello-world
-# - hello-world
+- echo "==> Snaps"
+- sudo snap install core || true
+- sudo snap install core
+- sudo snap install hello-world
+- hello-world
 
 # Sleep
 #- sleep 600

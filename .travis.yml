@@ -26,7 +26,8 @@ before_install:
 arch:
 # #  - amd64
 # - ppc64le
-- s390x
+# - s390x
+- arm64
 
 python:
 - "3.8.1"

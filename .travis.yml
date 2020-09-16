@@ -150,6 +150,8 @@ jobs:
     language: generic
     script:
     - php -v
+  - dist: focal
+    name: focal
 # cache:
 #   directories:
 #    - /home/travis/.rvm/
